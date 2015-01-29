@@ -681,6 +681,13 @@
         // offline method does not support 'all' and 'any' interfaces
         is.offline.api = ['not'];
     }
+    
+    // is running in node?
+    is.node = function() {
+        return typeof window === 'undefined' && is.object(process) && is.startWith(process.version, 'v');
+    };
+    // node method does not support 'all' and 'any' interfaces
+    is.node.api = ['not'];
 
     // Object checks
     /* -------------------------------------------------------------------------- */
